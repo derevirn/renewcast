@@ -1,2 +1,2 @@
 # Renewcast
-Forecasting renewable energy production in EU countries with deep learning 
+A web app that provides forecasts for renewable energy production of EU countries, based on Streamlit and Keras.
