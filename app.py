@@ -31,6 +31,6 @@ df = client.query_generation(country_code, start=start,end=end, psr_type=None)
 df = df.resample('H').mean()
 cols = ['Solar', 'Wind Onshore']
 
-st.area_chart(df)
+st.area_chart(df[cols])
 
 st.line_chart(df[cols])
