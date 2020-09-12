@@ -13,7 +13,7 @@ st.markdown("Select a country to view the chart of total energy generation,\
         Feel free to contact me on [LinkedIn](https://www.linkedin.com/in/giannis-tolios-0020b067/)\
         or via [e-mail](mailto:derevirn@gmail.com).")
 
-country = st.sidebar.selectbox(label = "Select a Country", index = 6,
+country = st.sidebar.selectbox(label = "Select a Country", index = 9,
                                options = list(COUNTRY_MAPPINGS.keys()))
 
 regressor = st.sidebar.selectbox("Select a Regression Algorithm",   
