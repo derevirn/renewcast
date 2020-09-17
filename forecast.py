@@ -7,7 +7,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.neighbors import KNeighborsRegressor
 from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor, ExtraTreesRegressor
 from sklearn.svm import LinearSVR
-
+from xgboost import XGBRegressor
 
 def select_regressor(selection):
     regressors = {
@@ -15,6 +15,7 @@ def select_regressor(selection):
     'K-Nearest Neighbors': KNeighborsRegressor(),
     'Random Forest': RandomForestRegressor(),
     'Gradient Boosting': GradientBoostingRegressor(),
+    'XGBoost': XGBRegressor(verbosity = 0),
     'Support Vector Machines': LinearSVR(),
     'Extra Trees': ExtraTreesRegressor(),
      }

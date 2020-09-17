@@ -18,7 +18,7 @@ country = st.sidebar.selectbox(label = "Select a Country", index = 9,
 
 regressor = st.sidebar.selectbox("Select a Regression Algorithm",   
                                  ['Linear Regression', 'K-Nearest Neighbors',
-                                  'Random Forest', 'Gradient Boosting',
+                                  'Random Forest', 'Gradient Boosting', 'XGBoost',
                                   'Support Vector Machines', 'Extra Trees' ])                    
 
 st.subheader('Total Energy Generation in ' + country + ' (MW)') 
