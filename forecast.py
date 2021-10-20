@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-from sktime.forecasting.compose import ReducedRegressionForecaster
+from sktime.forecasting.compose import ReducedRegressionForecaster #Install sktime ver. 0.4.1 to ensure compatibility with the code.
 from sktime.forecasting.model_selection import temporal_train_test_split
 from sktime.performance_metrics.forecasting import smape_loss
 from sklearn.linear_model import LinearRegression

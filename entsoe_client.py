@@ -2,7 +2,7 @@ import os
 import pandas as pd
 import streamlit as st
 from dotenv import load_dotenv
-from entsoe import EntsoePandasClient
+from entsoe import EntsoePandasClient #Install entsoe-py ver. 0.2.13 to ensure compatibility with the code.
 from entsoe.mappings import TIMEZONE_MAPPINGS
 
 #Using the caching mechanism of Streamlit,

@@ -5,4 +5,4 @@ entsoe-py==0.2.13
 scikit-learn==0.23.1
 xgboost==0.90
 sktime==0.4.1
-streamlit==0.64.0
+streamlit==1.0.0
