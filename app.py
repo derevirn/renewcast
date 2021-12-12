@@ -1,7 +1,7 @@
 import streamlit as st
 from country_mappings import COUNTRY_MAPPINGS
 from entsoe_client import get_energy_data
-from forecast import generate_forecast, calculate_smape
+from forecast import generate_forecast
 
 st.title("Renewcast: Forecasting Renewable Energy Generation in EU Countries")
 st.markdown("Select a country to view the chart of total energy generation,\
@@ -44,9 +44,7 @@ df = df[df.columns & cols_renewable]
 
 for item in df.columns:
     
-    smape = calculate_smape(df[[item]], regressor, forecast_horizon, window_length)
     st.subheader(item + ' Energy Generation Forecast in ' + country + ' (MW)')
     #Generating and plotting a forecast for each renewable energy type
     df_forecast = generate_forecast(df[[item]], regressor, forecast_horizon, window_length)
     st.line_chart(df_forecast, use_container_width = False, width = 800)
-    st.text('SMAPE: %.2f' % smape)
