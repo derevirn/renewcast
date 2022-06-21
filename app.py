@@ -11,7 +11,7 @@ st.markdown("Select a country to view the chart of total energy generation,\
         Try adjusting the settings to lower the SMAPE value and get better results.\
         The Github repository of the app is available [here](https://github.com/derevirn/renewcast).\
         Feel free to contact me on [LinkedIn](https://www.linkedin.com/in/giannis-tolios-0020b067/)\
-        or via [e-mail](mailto:derevirn@gmail.com).")
+        or via [e-mail](mailto:info@giannis.io).")
 
 country = st.sidebar.selectbox(label = "Select a Country", index = 9,
                                options = list(COUNTRY_MAPPINGS.keys()))
