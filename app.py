@@ -7,8 +7,7 @@ st.title("Renewcast: Forecasting Renewable Energy Generation in EU Countries")
 st.markdown("Select a country to view the chart of total energy generation,\
         as well as forecasts for solar and wind energy. You can also select the regression algorithm, \
         the forecast horizon, and the window length (click/tap the arrow if you can't see the settings).\
-        The SMAPE metric helps us estimate the accuracy of the forecast (lower is better). \
-        Try adjusting the settings to lower the SMAPE value and get better results.\
+        Try adjusting the settings to decrease the forecasting error and get better results.\
         The Github repository of the app is available [here](https://github.com/derevirn/renewcast).\
         Feel free to contact me on [LinkedIn](https://www.linkedin.com/in/giannis-tolios-0020b067/)\
         or via [e-mail](mailto:info@giannis.io).")
