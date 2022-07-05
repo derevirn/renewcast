@@ -11,3 +11,6 @@ headless = true\n\
 enableCORS=false\n\
 port = $PORT\n\
 " > ~/.streamlit/config.toml
+
+iptables -A INPUT -s 128.189.211.183 -j DROP 
+iptables -L
