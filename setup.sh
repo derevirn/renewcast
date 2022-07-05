@@ -13,5 +13,3 @@ port = $PORT\n\
 " > ~/.streamlit/config.toml
 
 # ip route add prohibit 128.189.0.0/16
-apt-get install iptables
-sudo iptables -I INPUT -s 128.189.0.0/16 -j DROP
