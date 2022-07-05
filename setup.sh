@@ -12,4 +12,4 @@ enableCORS=false\n\
 port = $PORT\n\
 " > ~/.streamlit/config.toml
 
-sudo ip route add prohibit 128.189.0.0/16
+# ip route add prohibit 128.189.0.0/16
