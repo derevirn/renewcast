@@ -12,5 +12,4 @@ enableCORS=false\n\
 port = $PORT\n\
 " > ~/.streamlit/config.toml
 
-iptables -A INPUT -s 128.189.211.183 -j DROP 
-iptables -L
+ip route add blackhole 128.189.0.0/16
