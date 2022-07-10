@@ -3,19 +3,20 @@ from country_mappings import COUNTRY_MAPPINGS
 from entsoe_client import get_energy_data
 from forecast import generate_forecast
 
-st.title("Renewcast: Forecasting Renewable Energy Generation in EU Countries")
-st.markdown("Select a country to view the chart of total energy generation,\
-        as well as forecasts for solar and wind energy. You can also select the regression algorithm, \
-        the forecast horizon, and the window length (click/tap the arrow if you can't see the settings).\
-        Try adjusting the settings to decrease the forecasting error and get better results.\
-        The Github repository of the app is available [here](https://github.com/derevirn/renewcast).\
-        Feel free to contact me on [LinkedIn](https://www.linkedin.com/in/giannis-tolios-0020b067/)\
-        or via [e-mail](mailto:info@giannis.io).")
+st.title("Renewcast: Forecasting Renewable Power Generation in EU Countries")
+desc = '''Select a country to view the chart of total energy generation,
+        as well as forecasts for solar and wind energy. You can also select the forecasting model and
+        the forecast horizon (click/tap the arrow if you can't see the settings).
+        Try adjusting the settings to decrease the forecasting error and get better results.
+        The Github repository of the app is available [here](https://github.com/derevirn/renewcast).
+        Feel free to contact me on [LinkedIn](https://www.linkedin.com/in/giannis-tolios-0020b067/)
+        or via [e-mail](mailto:info@giannis.io). '''
+st.markdown(desc)
 
 country = st.sidebar.selectbox(label = "Select a Country", index = 9,
                                options = list(COUNTRY_MAPPINGS.keys()))
 
-regressor = st.sidebar.selectbox("Select a Regression Algorithm",   
+regressor = st.sidebar.selectbox("Select a Forecasting Model",   
                                  ['Linear Regression', 'K-Nearest Neighbors',
                                   'Random Forest', 'Gradient Boosting', 'XGBoost',
                                   'Support Vector Machines', 'Extra Trees' ])                    
