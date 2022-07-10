@@ -1,39 +1,39 @@
 import streamlit as st
-from country_mappings import COUNTRY_MAPPINGS
-from entsoe_client import get_energy_data
-from forecast import generate_forecast
+from renewcast import *
+#from entsoe_client import get_energy_data
+#from renewcast.forecast import generate_forecast
 
-st.title("Renewcast: Forecasting Renewable Power Generation in EU Countries")
-desc = '''Select a country to view the chart of total energy generation,
-        as well as forecasts for solar and wind energy. You can also select the forecasting model and
-        the forecast horizon (click/tap the arrow if you can't see the settings).
-        Try adjusting the settings to decrease the forecasting error and get better results.
+
+st.set_page_config(page_title = "Renewcast ⚡")
+
+st.title("Renewcast ⚡")
+st.subheader('Forecasting Renewable Electricity Generation in EU Countries')
+
+desc = '''Select a country to view the chart of total electricity generation,
+        as well as forecasts for solar and wind energy. You can also select the forecasting model
+        as well as the horizon of your preference (click the top left arrow if you can't see the settings).
+        Try selecting a different model to decrease the forecasting error and get better results.
         The Github repository of the app is available [here](https://github.com/derevirn/renewcast).
-        Feel free to contact me on [LinkedIn](https://www.linkedin.com/in/giannis-tolios-0020b067/)
-        or via [e-mail](mailto:info@giannis.io). '''
+        I encourage you to send your feedback via [e-mail](mailto:info@giannis.io) or follow me
+        on [LinkedIn](https://www.linkedin.com/in/giannis-tolios-0020b067/).'''
 st.markdown(desc)
 
 country = st.sidebar.selectbox(label = "Select a Country", index = 9,
-                               options = list(COUNTRY_MAPPINGS.keys()))
+                               options = countries.keys())
+                        
+select_model = st.sidebar.selectbox("Select a Forecasting Model",   
+                                 options = models.keys())                    
 
-regressor = st.sidebar.selectbox("Select a Forecasting Model",   
-                                 ['Linear Regression', 'K-Nearest Neighbors',
-                                  'Random Forest', 'Gradient Boosting', 'XGBoost',
-                                  'Support Vector Machines', 'Extra Trees' ])                    
-
-st.subheader('Total Energy Generation in ' + country + ' (MW)') 
+st.subheader('Total Electricity Generation in {} (MW)'.format(country)) 
 
 forecast_horizon = st.sidebar.slider(label = 'Forecast Horizon (hours)',
                                      min_value = 12, max_value = 168, value = 48)
 
-window_length = st.sidebar.slider(label = 'Window Length',
-                                  min_value = 1, value = 30)
 
-
-country_code = COUNTRY_MAPPINGS[country]
+country_code = countries[country]
 df = get_energy_data(country_code)
 
-#Plotting total energy generation for selected country
+#Plotting total electricity generation for selected country
 st.area_chart(df, use_container_width = False, width = 800)
 
 cols_renewable = [ 'Wind Onshore', 'Wind Offshore', 'Solar'] 
@@ -44,7 +44,11 @@ df = df[df.columns & cols_renewable]
 
 for item in df.columns:
     
-    st.subheader(item + ' Energy Generation Forecast in ' + country + ' (MW)')
+    st.subheader(item + ' Electricity Generation Forecast in ' + country + ' (MW)')
     #Generating and plotting a forecast for each renewable energy type
-    df_forecast = generate_forecast(df[[item]], regressor, forecast_horizon, window_length)
+    df_forecast, metrics = generate_forecast(df[item].to_frame(), models[select_model], forecast_horizon)
+    
     st.line_chart(df_forecast, use_container_width = False, width = 800)
+    st.dataframe(metrics)
+
+    print(df_forecast)
