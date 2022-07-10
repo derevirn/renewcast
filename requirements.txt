@@ -1,4 +1,4 @@
-pycaret==3.0.0rc2
+pycaret==3.0.0rc2[full]
 streamlit==1.10.0
 entsoe-py==0.4.3
 python-dotenv

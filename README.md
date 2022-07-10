@@ -1,5 +1,6 @@
 # Renewcast
-A dashboard app that provides forecasts for renewable electricity generation in EU countries, based on Streamlit and PyCaret. Users can select the country of their preference as well as the forecasting model, ranging from classical approaches to machine learning models. The app has been deployed on Heroku and is available [here](https://renewcast.herokuapp.com/).
+A dashboard app that provides forecasts for renewable electricity generation in EU countries, based on Streamlit and PyCaret. Users can select the country and the forecasting model of their preference, ranging from classical approaches to machine learning models. The app has been deployed on Heroku and is available [here](https://renewcast.herokuapp.com/).
+
 ![Renewcast](images/forecast.png)
 
 ### Towards Data Science Article:
