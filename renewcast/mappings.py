@@ -32,9 +32,10 @@ countries = {
 
 models = {
     'Exponential Smoothing': 'exp_smooth',
-    'Auto ARIMA': 'auto_arima',
-    'ETS': 'ets',
+    'AutoETS': 'ets',
     'Theta Forecaster': 'theta',
+	'Polynomial Trend Forecaster': 'polytrend',
+	'Croston': 'croston',
     'TBATS': 'tbats',
     'Linear Regression': 'lr_cds_dt',
     'K-Nearest Neighbors Regression': 'knn_cds_dt',
@@ -42,7 +43,7 @@ models = {
     'Random Forest Regression': 'rf_cds_dt',
     'Extra Trees Regression': 'et_cds_dt',
     'Gradient Boosting Regression': 'gbr_cds_dt',
-    'LightGBM': 'lightgbm_cds_dt'
+    'LightGBM Regression': 'lightgbm_cds_dt'
 
      }
 

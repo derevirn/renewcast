@@ -18,37 +18,50 @@ desc = '''Select a country to view the chart of total electricity generation,
         on [LinkedIn](https://www.linkedin.com/in/giannis-tolios-0020b067/).'''
 st.markdown(desc)
 
+#Creating the sidebar menu 
 country = st.sidebar.selectbox(label = "Select a Country", index = 9,
                                options = countries.keys())
-                        
+
+container_cat = st.sidebar.container()
+
+               
 select_model = st.sidebar.selectbox("Select a Forecasting Model",   
-                                 options = models.keys())                    
+                                 options = models.keys())       
+            
+
+forecast_horizon = st.sidebar.slider(label = 'Forecast Horizon (hours)',
+                                     min_value = 12, max_value = 168, value = 24)         
 
 st.subheader('Total Electricity Generation in {} (MW)'.format(country)) 
 
-forecast_horizon = st.sidebar.slider(label = 'Forecast Horizon (hours)',
-                                     min_value = 12, max_value = 168, value = 48)
 
-
+#Getting the electricity data
 country_code = countries[country]
 df = get_energy_data(country_code)
 
 #Plotting total electricity generation for selected country
 st.area_chart(df, use_container_width = False, width = 800)
+     
 
+#Selecting the renewable energy columns
+#that are available in the dataframe
 cols_renewable = [ 'Wind Onshore', 'Wind Offshore', 'Solar'] 
-
-#Selecting the renewable energy columns,
-#Only if they are available in the dataframe
 df = df[df.columns & cols_renewable]
+ 
+with container_cat:
+        renewable_cat = st.selectbox(label = 'Select a Category', options = df.columns)   
 
-for item in df.columns:
-    
-    st.subheader(item + ' Electricity Generation Forecast in ' + country + ' (MW)')
-    #Generating and plotting a forecast for each renewable energy type
-    df_forecast, metrics = generate_forecast(df[item].to_frame(), models[select_model], forecast_horizon)
-    
-    st.line_chart(df_forecast, use_container_width = False, width = 800)
-    st.dataframe(metrics)
+st.subheader(renewable_cat + ' Electricity Generation Forecast in ' + country + ' (MW)')
 
-    print(df_forecast)
+#Generating and plotting a forecast for each renewable energy type
+forecast_results = get_forecast_results(df[renewable_cat].to_frame(),
+                   models[select_model], forecast_horizon)
+                   
+st.plotly_chart(forecast_results['forecast_fig'], use_container_width = False)
+st.markdown('** Forecast result on test set and future values **')
+st.dataframe(forecast_results['metrics'])
+
+
+with st.expander('Display More Information'):
+        st.plotly_chart(forecast_results['decomp_fig'], use_container_width = True)
+

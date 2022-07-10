@@ -57,3 +57,33 @@
 'prophet' is a soft dependency and not included in the pycaret installation. Please run: `pip install prophet` to install.
 2022-07-10 07:08:08,536:WARNING:No module named 'prophet'.
 'prophet' is a soft dependency and not included in the pycaret installation. Please run: `pip install prophet` to install.
+2022-07-10 21:47:10,707:WARNING:No module named 'prophet'.
+'prophet' is a soft dependency and not included in the pycaret installation. Please run: `pip install prophet` to install.
+2022-07-10 21:48:20,663:WARNING:No module named 'prophet'.
+'prophet' is a soft dependency and not included in the pycaret installation. Please run: `pip install prophet` to install.
+2022-07-10 21:48:20,663:WARNING:No module named 'prophet'.
+'prophet' is a soft dependency and not included in the pycaret installation. Please run: `pip install prophet` to install.
+2022-07-10 21:52:35,293:WARNING:c:\users\derevirn\miniconda3\envs\pycaret\lib\site-packages\statsmodels\tsa\holtwinters\model.py:922: ConvergenceWarning: Optimization failed to converge. Check mle_retvals.
+  ConvergenceWarning,
+
+2022-07-10 21:52:35,323:WARNING:c:\users\derevirn\miniconda3\envs\pycaret\lib\site-packages\statsmodels\tsa\holtwinters\model.py:922: ConvergenceWarning: Optimization failed to converge. Check mle_retvals.
+  ConvergenceWarning,
+
+2022-07-10 21:52:35,403:WARNING:c:\users\derevirn\miniconda3\envs\pycaret\lib\site-packages\statsmodels\tsa\holtwinters\model.py:922: ConvergenceWarning: Optimization failed to converge. Check mle_retvals.
+  ConvergenceWarning,
+
+2022-07-10 21:54:31,650:WARNING:No module named 'prophet'.
+'prophet' is a soft dependency and not included in the pycaret installation. Please run: `pip install prophet` to install.
+2022-07-10 22:49:56,010:WARNING:No module named 'prophet'.
+'prophet' is a soft dependency and not included in the pycaret installation. Please run: `pip install prophet` to install.
+2022-07-10 23:01:20,548:WARNING:No module named 'prophet'.
+'prophet' is a soft dependency and not included in the pycaret installation. Please run: `pip install prophet` to install.
+2022-07-10 23:01:20,572:WARNING:No module named 'prophet'.
+'prophet' is a soft dependency and not included in the pycaret installation. Please run: `pip install prophet` to install.
+2022-07-10 23:01:20,572:WARNING:No module named 'prophet'.
+'prophet' is a soft dependency and not included in the pycaret installation. Please run: `pip install prophet` to install.
+2022-07-10 23:01:20,601:WARNING:c:\users\derevirn\miniconda3\envs\pycaret\lib\site-packages\sktime\utils\seasonality.py:45: UserWarning: Did not perform seasonality test, as `y`` is too short for the given `sp`, returned: False
+  "Did not perform seasonality test, as `y`` is too short for the "
+
+2022-07-10 23:04:13,534:WARNING:No module named 'prophet'.
+'prophet' is a soft dependency and not included in the pycaret installation. Please run: `pip install prophet` to install.
