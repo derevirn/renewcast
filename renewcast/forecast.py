@@ -1,14 +1,18 @@
 import numpy as np
 import pandas as pd
+from statsmodels.stats.descriptivestats import describe
 from pycaret.time_series import *
 import logging
 logging.disable(logging.CRITICAL)
 
-def get_forecast_results(df, select_model, forecast_horizon):
+def get_forecast_results(df, model_code, forecast_horizon):
+
+    engine = None
+    if model_code == 'auto_arima': engine = 'statsforecast'
 
     #Create forecasting model
-    ts = setup(df, fh = 36, verbose = False, numeric_imputation_target = 'linear')
-    model = create_model(select_model, cross_validation = False)
+    ts = setup(df, fh = 48, verbose = False, numeric_imputation_target = 'linear')
+    model = create_model(model_code, cross_validation = False, engine = engine)
     metrics = pull().drop('MAPE', axis = 1)
     '''
     model = finalize_model(model)
@@ -17,33 +21,42 @@ def get_forecast_results(df, select_model, forecast_horizon):
     col_name = df.columns[0] + ' Forecast'
     prediction.rename(columns = {'y_pred': col_name}, inplace = True)
     df = pd.concat([df, prediction])
-    '''
-
+    ''' 
     #Create a Plotly figure for the forecast 
-    fig_kwargs = {'renderer': 'streamlit'}
-    data_kwargs = {'fh': forecast_horizon + 36}
+    fig_kwargs = {'renderer': 'plotly_mimetype'}
+    data_kwargs = {'fh': forecast_horizon + 48}
 
     forecast_fig = plot_model(model, 'forecast', return_fig = True,
                    fig_kwargs = fig_kwargs, data_kwargs = data_kwargs)
-    forecast_fig.update_layout(width = 800, height = 400,
-                    margin={"r":1,"t":15,"l":25,"b":1},
+    forecast_fig.update_layout(height = 400,
+                    margin={"r":1,"t":15,"l":1,"b":1},
                     plot_bgcolor = '#FFFFFF',
-                    title_text =" ")
+                    legend = dict(orientation = 'h', yanchor = 'top'),
+                    yaxis_title='', xaxis_title='',
+                    title = "")
 
     #Create a Plotly figure with the decomposition plot
     decomp_fig = plot_model(plot = 'decomp', return_fig = True,
-                 fig_kwargs = fig_kwargs)
-    decomp_fig.update_layout(width = 800, height = 400,
+                 fig_kwargs = fig_kwargs, data_kwargs = data_kwargs)
+    decomp_fig.update_layout(height = 400,
                     margin={"r":1,"t":18,"l":1,"b":1},
                     plot_bgcolor = '#FFFFFF',
-                    title_text ='')
+                    title = '')
+
+    #Create a Plotly figure with the decomposition plot
+    acf_fig = plot_model(plot = 'acf', return_fig = True,
+                 fig_kwargs = fig_kwargs, data_kwargs = data_kwargs)
+    acf_fig.update_layout(height = 400,
+                    margin={"r":1,"t":18,"l":1,"b":1},
+                    plot_bgcolor = '#FFFFFF',
+                    title = '')
 
     forecast_dict = {
         'metrics': metrics,
         'forecast_fig': forecast_fig,
         'decomp_fig': decomp_fig,
+        'acf_fig': acf_fig
     }
 
     return forecast_dict
-
 

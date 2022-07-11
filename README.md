@@ -4,4 +4,5 @@ A dashboard app that provides forecasts for renewable electricity generation in 
 ![Renewcast](images/forecast.png)
 ### Towards Data Science Article:
 [Forecasting Renewable Energy Generation with Streamlit and sktime](https://towardsdatascience.com/forecasting-renewable-energy-generation-with-streamlit-and-sktime-ab789ef1299f)
+
 (The source code has been significantly updated after I published this article, so [click here](https://github.com/derevirn/renewcast/tree/sktime_old) for the old version.)

@@ -32,11 +32,11 @@ countries = {
 
 models = {
     'Exponential Smoothing': 'exp_smooth',
+	'AutoARIMA': 'auto_arima',
     'AutoETS': 'ets',
     'Theta Forecaster': 'theta',
 	'Polynomial Trend Forecaster': 'polytrend',
 	'Croston': 'croston',
-    'TBATS': 'tbats',
     'Linear Regression': 'lr_cds_dt',
     'K-Nearest Neighbors Regression': 'knn_cds_dt',
     'Decision Tree Regression': 'dt_cds_dt',

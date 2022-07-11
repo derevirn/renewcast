@@ -15,7 +15,7 @@ def get_energy_data(country_code):
     area = lookup_area(country_code)
     client = EntsoePandasClient(api_key=token)
     end = pd.Timestamp.now(tz=area.tz)
-    start = end - pd.DateOffset(weeks=1)
+    start = end - pd.DateOffset(weeks=2)
     df = client.query_generation(area, start=start,end=end, nett = True, psr_type=None)
     df.set_index(df.index.tz_convert(None), inplace = True)
     #Resampling the dataframe with an hourly frequency,
