@@ -42,7 +42,6 @@ models = {
     'Random Forest Regression': 'rf_cds_dt',
     'Extra Trees Regression': 'et_cds_dt',
     'Gradient Boosting Regression': 'gbr_cds_dt',
-	'XGBoost Regression': 'xgboost_cds_dt',
     'LightGBM Regression': 'lightgbm_cds_dt'
 
      }
