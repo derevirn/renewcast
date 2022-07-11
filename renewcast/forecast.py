@@ -1,10 +1,12 @@
 import numpy as np
 import pandas as pd
+import streamlit as st
 from statsmodels.stats.descriptivestats import describe
 from pycaret.time_series import *
 import logging
 logging.disable(logging.CRITICAL)
 
+@st.cache(allow_output_mutation=True)
 def get_forecast_results(df, model_code, forecast_horizon):
 
     engine = None

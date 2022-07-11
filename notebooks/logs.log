@@ -93,3 +93,5 @@
 'prophet' is a soft dependency and not included in the pycaret installation. Please run: `pip install prophet` to install.
 2022-07-11 04:29:00,654:WARNING:No module named 'prophet'.
 'prophet' is a soft dependency and not included in the pycaret installation. Please run: `pip install prophet` to install.
+2022-07-11 22:50:37,308:WARNING:No module named 'prophet'.
+'prophet' is a soft dependency and not included in the pycaret installation. Please run: `pip install prophet` to install.

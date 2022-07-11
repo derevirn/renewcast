@@ -8,7 +8,7 @@ from entsoe.mappings import lookup_area
 
 #Using the caching mechanism of Streamlit,
 #to download energy data from the ENTSOE API only when necessary
-@st.cache
+@st.cache(ttl = 3600)
 def get_energy_data(country_code):
     load_dotenv()
     token = os.environ['TOKEN']

@@ -35,14 +35,15 @@ models = {
 	'AutoARIMA': 'auto_arima',
     'AutoETS': 'ets',
     'Theta Forecaster': 'theta',
+	'Naive Forecast': 'naive',
 	'Polynomial Trend Forecaster': 'polytrend',
-	'Croston': 'croston',
     'Linear Regression': 'lr_cds_dt',
     'K-Nearest Neighbors Regression': 'knn_cds_dt',
     'Decision Tree Regression': 'dt_cds_dt',
     'Random Forest Regression': 'rf_cds_dt',
     'Extra Trees Regression': 'et_cds_dt',
     'Gradient Boosting Regression': 'gbr_cds_dt',
+	'XGBoost Regression': 'xgboost_cds_dt',
     'LightGBM Regression': 'lightgbm_cds_dt'
 
      }
