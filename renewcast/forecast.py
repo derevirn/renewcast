@@ -45,7 +45,7 @@ def get_forecast_results(df, model_code, forecast_horizon):
                     plot_bgcolor = '#FFFFFF',
                     title = '')
 
-    #Create a Plotly figure with the decomposition plot
+    #Create a Plotly figure with the ACF plot
     acf_fig = plot_model(plot = 'acf', return_fig = True,
                  fig_kwargs = fig_kwargs, data_kwargs = data_kwargs)
     acf_fig.update_layout(height = 400,
