@@ -11,7 +11,7 @@ desc = '''Select a country to view the total electricity generation plot,
         as well as forecasts for solar & wind energy. You can also specify the forecasting model
         and horizon of your preference (click the top left arrow if you can't see the settings).
         Try selecting a different model to decrease the forecasting error and get better results.
-        Furthermore, I suggest using the app on a larger screen, as it has not designed for mobile devices and 
+        Furthermore, I suggest using the app on a computer, as it has not been designed for smaller screens and 
         may have some issues on smartphones. Finally, you can check the app [Github repository](https://github.com/derevirn/renewcast)
         and send your feedback via [e-mail](mailto:info@giannis.io), or follow me on 
         [LinkedIn](https://www.linkedin.com/in/giannis-tolios-0020b067/) where I regularly post content.'''

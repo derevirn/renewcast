@@ -31,9 +31,9 @@ countries = {
     }
 
 models = {
-    'Exponential Smoothing': 'exp_smooth',
 	'AutoARIMA': 'auto_arima',
-    'AutoETS': 'ets',
+	'AutoETS': 'ets',
+	'Exponential Smoothing': 'exp_smooth',
     'Theta Forecaster': 'theta',
 	'Naive Forecaster': 'naive',
     'Linear Regression': 'lr_cds_dt',
