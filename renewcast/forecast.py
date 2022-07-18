@@ -13,7 +13,7 @@ def get_forecast_results(df, model_code, forecast_horizon):
     if model_code == 'auto_arima': engine = 'statsforecast'
 
     #Create forecasting model
-    ts = setup(df, fh = 48, verbose = False, numeric_imputation_target = 'linear')
+    ts = setup(df, fh = 24, verbose = False, numeric_imputation_target = 'linear')
     model = create_model(model_code, cross_validation = False, engine = engine)
     metrics = pull().drop('MAPE', axis = 1)
     '''
@@ -26,7 +26,7 @@ def get_forecast_results(df, model_code, forecast_horizon):
     ''' 
     #Create a Plotly figure for the forecast 
     fig_kwargs = {'renderer': 'plotly_mimetype'}
-    data_kwargs = {'fh': forecast_horizon + 48}
+    data_kwargs = {'fh': forecast_horizon + 24}
 
     forecast_fig = plot_model(model, 'forecast', return_fig = True,
                    fig_kwargs = fig_kwargs, data_kwargs = data_kwargs)
