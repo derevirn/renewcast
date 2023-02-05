@@ -1,5 +1,6 @@
 .*
 !.gitignore
+!.streamlit/
 __pycache__
 credentials.py
 *.log
