@@ -74,6 +74,12 @@ with st.expander('Display More Plots'):
         st.markdown('#### ACF Plot')
         st.plotly_chart(forecast_results['acf_fig'], use_container_width = True)
 
-        st.markdown('#### Diagnostics Plot')
-        st.plotly_chart(forecast_results['diag_fig'], use_container_width = True)
+        if forecast_results['diag_fig'] != None:
+                diag_fig = forecast_results['diag_fig']
+                diag_fig.update_layout(height = 600,
+                margin={"r":1,"t":19,"l":1,"b":1},
+                plot_bgcolor = '#FFFFFF', title = '')
+
+                st.markdown('#### Diagnostics Plot')
+                st.plotly_chart(forecast_results['diag_fig'], use_container_width = True)
         

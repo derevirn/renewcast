@@ -56,11 +56,9 @@ def get_forecast_results(df, model_code, forecast_horizon):
                     plot_bgcolor = '#FFFFFF',
                     title = '')
 
+    #Create a Plotly figure with the diagnostics plot
     diagnostics_fig = plot_model(model, plot = 'diagnostics', return_fig= True,
                                 fig_kwargs = fig_kwargs)
-    diagnostics_fig.update_layout(height = 600,
-                    margin={"r":1,"t":1,"l":1,"b":1},
-                    plot_bgcolor = '#FFFFFF', title = '')
 
     forecast_dict = {
         'metrics': metrics,
