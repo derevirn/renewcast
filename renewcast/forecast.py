@@ -31,6 +31,8 @@ def get_forecast_results(df, model_code, forecast_horizon):
     forecast_fig = plot_model(model, 'forecast', return_fig = True,
                    fig_kwargs = fig_kwargs, data_kwargs = data_kwargs)
     forecast_fig.update_layout(height = 400,
+                    xaxis=dict(showgrid=False),
+                    yaxis=dict(showgrid=False),
                     margin={"r":1,"t":15,"l":1,"b":1},
                     plot_bgcolor = '#FFFFFF',
                     legend = dict(orientation = 'h', yanchor = 'top'),
@@ -40,7 +42,7 @@ def get_forecast_results(df, model_code, forecast_horizon):
     #Create a Plotly figure with the decomposition plot
     decomp_fig = plot_model(plot = 'decomp', return_fig = True,
                  fig_kwargs = fig_kwargs, data_kwargs = data_kwargs)
-    decomp_fig.update_layout(height = 400,
+    decomp_fig.update_layout(height = 600,
                     margin={"r":1,"t":18,"l":1,"b":1},
                     plot_bgcolor = '#FFFFFF',
                     title = '')
@@ -49,15 +51,23 @@ def get_forecast_results(df, model_code, forecast_horizon):
     acf_fig = plot_model(plot = 'acf', return_fig = True,
                  fig_kwargs = fig_kwargs, data_kwargs = data_kwargs)
     acf_fig.update_layout(height = 400,
+                    yaxis=dict(showgrid=False),
                     margin={"r":1,"t":18,"l":1,"b":1},
                     plot_bgcolor = '#FFFFFF',
                     title = '')
+
+    diagnostics_fig = plot_model(model, plot = 'diagnostics', return_fig= True,
+                                fig_kwargs = fig_kwargs)
+    diagnostics_fig.update_layout(height = 600,
+                    margin={"r":1,"t":1,"l":1,"b":1},
+                    plot_bgcolor = '#FFFFFF', title = '')
 
     forecast_dict = {
         'metrics': metrics,
         'forecast_fig': forecast_fig,
         'decomp_fig': decomp_fig,
-        'acf_fig': acf_fig
+        'acf_fig': acf_fig,
+        'diag_fig': diagnostics_fig
     }
 
     return forecast_dict

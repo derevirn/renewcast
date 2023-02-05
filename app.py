@@ -4,6 +4,9 @@ from renewcast import *
 
 st.set_page_config(page_title = "Renewcast", page_icon="⚡")
 
+with open( "style.css" ) as css: 
+        st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
+
 st.title("Renewcast ⚡")
 st.markdown('#### Forecasting Renewable Electricity Generation in EU Countries')
 
@@ -40,6 +43,7 @@ df = get_energy_data(country_code)
 fig = px.area(df, x = df.index, y = df.columns, color_discrete_sequence=px.colors.qualitative.Prism)
 fig.update_traces(line=dict(width=0.25))
 fig.update_layout(height = 450, margin={"r":1,"t":10,"l":1,"b":1},
+                  yaxis=dict(showgrid=False),
                   plot_bgcolor = '#FFFFFF', title = "",
                   legend = dict(orientation = 'h', title = ''),
                   yaxis_title='', xaxis_title='')
@@ -69,4 +73,7 @@ with st.expander('Display More Plots'):
         
         st.markdown('#### ACF Plot')
         st.plotly_chart(forecast_results['acf_fig'], use_container_width = True)
+
+        st.markdown('#### Diagnostics Plot')
+        st.plotly_chart(forecast_results['diag_fig'], use_container_width = True)
         
