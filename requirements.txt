@@ -1,5 +1,5 @@
 pycaret==3.0.0rc8
 streamlit==1.17.0
-entsoe-py==0.4.3
+entsoe-py==0.5.9
 statsforecast==1.1.1
 python-dotenv
