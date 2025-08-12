@@ -21,7 +21,7 @@ desc = '''Select a country to view the total electricity generation plot,
 st.markdown(desc)
 
 #Creating the sidebar menu 
-country = st.sidebar.selectbox(label = "Select a Country", index = 9,
+country = st.sidebar.selectbox(label = "Select a Country", index = 6,
                                options = countries.keys())
 
 container_cat = st.sidebar.container()
