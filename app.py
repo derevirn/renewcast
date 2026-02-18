@@ -52,8 +52,8 @@ st.plotly_chart(fig, use_container_width = True)
      
 #Selecting the renewable electricity columns that are available
 cols_renewable = ['Wind Onshore', 'Wind Offshore', 'Solar'] 
-df = df[df.columns & cols_renewable]
- 
+df = df[df.columns.intersection(cols_renewable)]
+
 with container_cat:
         renewable_cat = st.selectbox(label = 'Select a Category', options = df.columns)   
 
