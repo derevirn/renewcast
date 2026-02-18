@@ -6,7 +6,7 @@ from pycaret.time_series import *
 import logging
 logging.disable(logging.CRITICAL)
 
-@st.cache(allow_output_mutation=True)
+@st.cache_resource
 def get_forecast_results(df, model_code, forecast_horizon):
 
     engine = None
