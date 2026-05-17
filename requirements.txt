@@ -1,5 +1,5 @@
-pycaret==3.3.2
-streamlit==1.50.0
 entsoe-py==0.7.10
+pycaret==3.3.1
 statsforecast==1.4.0
+streamlit==1.57.0
 python-dotenv
