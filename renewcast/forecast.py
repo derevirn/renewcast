@@ -7,26 +7,25 @@ import logging
 logging.disable(logging.CRITICAL)
 
 @st.cache_resource
-def get_forecast_results(df, model_code, forecast_horizon):
+def get_forecast_results(df, model_code, fh):
+
+    test_len = 24 # test set equals 24 hours
+    forecast_horizon = test_len + fh # user specified FH plus test set
 
     engine = None
     if model_code == 'auto_arima': engine = 'statsforecast'
 
     #Create forecasting model
-    ts = setup(df, fh = 24, verbose = False, numeric_imputation_target = 'linear')
+    setup(df, fh = test_len, seasonal_period=24, 
+          fold_strategy= 'expanding', verbose = True,
+          numeric_imputation_target = 'linear')
+    
     model = create_model(model_code, cross_validation = False, engine = engine)
     metrics = pull().drop('MAPE', axis = 1)
-    '''
-    model = finalize_model(model)
-    prediction = predict_model(model, fh = forecast_horizon)
-    prediction.set_index(prediction.index.to_timestamp(), inplace = True)
-    col_name = df.columns[0] + ' Forecast'
-    prediction.rename(columns = {'y_pred': col_name}, inplace = True)
-    df = pd.concat([df, prediction])
-    ''' 
+ 
     #Create a Plotly figure for the forecast 
     fig_kwargs = {'renderer': 'plotly_mimetype'}
-    data_kwargs = {'fh': forecast_horizon + 24}
+    data_kwargs = {'fh': forecast_horizon}
 
     forecast_fig = plot_model(model, 'forecast', return_fig = True,
                    fig_kwargs = fig_kwargs, data_kwargs = data_kwargs)
