@@ -17,7 +17,7 @@ def get_forecast_results(df, model_code, fh):
 
     #Create forecasting model
     setup(df, fh = test_len, seasonal_period=24, 
-          fold_strategy= 'expanding', verbose = True,
+          fold_strategy= 'expanding', verbose = False,
           numeric_imputation_target = 'linear')
     
     model = create_model(model_code, cross_validation = False, engine = engine)
