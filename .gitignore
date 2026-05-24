@@ -1,6 +1,7 @@
 .*
 !.gitignore
 !.streamlit/
+/catboost_info/
 __pycache__
 credentials.py
 *.log

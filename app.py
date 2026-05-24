@@ -16,7 +16,7 @@ desc = '''Select a country to view total electricity generation,
         I suggest experimenting with different models to get more accurate results.
         You can click on **Display More Plots** for seasonal decomposition, ACF and forecast diagnostics.
         Furthermore, the data source is [ENTSO-E](https://www.entsoe.eu/) and all times are in **UTC**.
-        You can check the app [Github repo](https://github.com/derevirn/renewcast)
+        Consider visiting the app [Github repo](https://github.com/derevirn/renewcast)
         and send me your personal feedback via [e-mail](mailto:info@giannis.io). '''
 st.markdown(desc)
 
