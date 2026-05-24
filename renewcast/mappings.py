@@ -36,7 +36,7 @@ models = {
 	'Exponential Smoothing': 'exp_smooth',
     'STL Forecaster': 'stlf',
     'Prophet Forecaster': 'prophet',
-    'Seasonal Naive Forecast': 'snaive',
+    'Seasonal Naive Forecaster': 'snaive',
 	'Naive Forecaster': 'naive',
     'LightGBM Regression': 'lightgbm_cds_dt',
     'Catboost Regression': 'catboost_cds_dt',
