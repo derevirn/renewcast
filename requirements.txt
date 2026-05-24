@@ -1,5 +1,7 @@
-pycaret==3.0.0rc8
-streamlit==1.17.0
-entsoe-py==0.5.9
-statsforecast==1.1.1
+streamlit==1.57.0
+entsoe-py==0.7.10
+pycaret==3.3.2
+statsforecast==1.4.0
+prophet
+catboost
 python-dotenv
