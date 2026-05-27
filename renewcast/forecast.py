@@ -6,7 +6,7 @@ from pycaret.time_series import *
 import logging
 logging.disable(logging.CRITICAL)
 
-@st.cache_resource(max_entries=2)
+@st.cache_resource(max_entries=1)
 def get_forecast_results(df, model_code, fh):
 
     test_len = 24 # test set equals 24 hours
